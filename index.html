@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🔥 Rashop 2025 🔥</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>🔥Rashop🔥</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>🔥 Rashop 2025 🔥</h1>
-    <p>Support the campaign. Wear it proud. Raser 2025 Hoodies now available!</p>
+    <p>If you're interested in supporting my campaign, grab a stylish hoodie, make it our campaign. Raser 2025</p>
   </header>
 
   <main>
@@ -31,25 +28,19 @@
       <h2>Black Hoodie</h2>
       <p>$50.00</p>
     </div>
+
+    <!-- PayPal Button -->
+    <div id="paypal-button-container"></div>
   </main>
 
-  <!-- PayPal Button -->
-  <div id="paypal-button-container"></div>
-
   <footer>
-    <p>&copy; 2025 Rashop. All rights reserved.</p>
+    <p>&copy; Rashop 2025</p>
   </footer>
 
   <!-- PayPal Script -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
   <script>
     paypal.Buttons({
-      style: {
-        layout: 'horizontal',
-        color: 'gold',
-        shape: 'pill',
-        label: 'paypal'
-      },
       createOrder: function(data, actions) {
         return actions.order.create({
           purchase_units: [{
