@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🔥Rashop🔥</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔥 Rashop 2025 🔥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>🔥 Rashop 2025 🔥</h1>
-    <p>If you're interested in supporting my campaign, grab a stylish hoodie, make it our campaign. Raser 2025</p>
+    <p>Support the campaign. Wear it proud. Raser 2025 Hoodies now available!</p>
   </header>
 
-<main>
-  <div class="product">
-    <img src="hoodie.jpg" alt="White 2025 Hoodie - Front View" />
-    <img src="hoodie_2.jpg" alt="White 2025 Hoodie - Back View" />
-    <img src="hoodie3.jpg" alt="White 2025 Hoodie - Sleeve View" />
-    <h2>White Hoodie</h2>
-    <p>$50.00</p>
-  </div>
+  <main>
+    <div class="product">
+      <img src="hoodie.jpg" alt="White 2025 Hoodie - Front View" />
+      <img src="hoodie_2.jpg" alt="White 2025 Hoodie - Back View" />
+      <img src="hoodie_3.jpg" alt="White 2025 Hoodie - Sleeve View" />
+      <h2>White Hoodie</h2>
+      <p>$50.00</p>
+    </div>
 
-  <div class="product">
-    <img src="bhoodie.jpg" alt="Black 2025 Hoodie - Front View" />
-    <img src="bhoodie2.jpg" alt="Black 2025 Hoodie - Back View" />
-    <img src="bhoodie3.jpg" alt="Black 2025 Hoodie - Sleeve View" />
-    <h2>Black Hoodie</h2>
-    <p>$50.00</p>
-  </div>
-</main>
-
-
-      <!-- PayPal Button -->
-      <div id="paypal-button-container"></div>
+    <div class="product">
+      <img src="bhoodie.jpg" alt="Black 2025 Hoodie - Front View" />
+      <img src="bhoodie2.jpg" alt="Black 2025 Hoodie - Back View" />
+      <img src="bhoodie3.jpg" alt="Black 2025 Hoodie - Sleeve View" />
+      <h2>Black Hoodie</h2>
+      <p>$50.00</p>
     </div>
   </main>
 
+  <!-- PayPal Button -->
+  <div id="paypal-button-container"></div>
+
   <footer>
-    <p>&copy; Rashop 2025</p>
+    <p>&copy; 2025 Rashop. All rights reserved.</p>
   </footer>
 
   <!-- PayPal Script -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
   <script>
     paypal.Buttons({
+      style: {
+        layout: 'horizontal',
+        color: 'gold',
+        shape: 'pill',
+        label: 'paypal'
+      },
       createOrder: function(data, actions) {
         return actions.order.create({
           purchase_units: [{
