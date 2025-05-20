@@ -3,13 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🔥Rashop🔥</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>🔥 Raser Apparel Co. 🔥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Header styling: fixed top center */
+    header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      text-align: center;
+      padding: 15px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      z-index: 9999;
+    }
+
+    header h1 {
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Space so main content doesn't hide behind fixed header */
+    main {
+      padding-top: 110px; /* enough for header + spacing */
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .product {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>🔥 Rashop 2025 🔥</h1>
-    <p>If you're interested in supporting my campaign, grab a stylish hoodie, make it our campaign. Raser 2025</p>
+  <header id="pageHeader">
+    <h1>🔥 Raser Apparel Co. 🔥</h1>
+    <p>Support the campaign. Wear it proud. Raser 2025 Hoodies now available!</p>
   </header>
 
   <main>
@@ -28,25 +98,29 @@
       <h2>Black Hoodie</h2>
       <p>$50.00</p>
     </div>
-
-    <!-- PayPal Button -->
-    <div id="paypal-button-container"></div>
   </main>
 
+  <!-- PayPal Button -->
+  <div id="paypal-button-container" style="max-width:600px; margin: 0 auto 50px;"></div>
+
   <footer>
-    <p>&copy; Rashop 2025</p>
+    <p>&copy; 2025 Rashop. All rights reserved.</p>
   </footer>
 
   <!-- PayPal Script -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
   <script>
     paypal.Buttons({
+      style: {
+        layout: 'horizontal',
+        color: 'gold',
+        shape: 'pill',
+        label: 'paypal'
+      },
       createOrder: function(data, actions) {
         return actions.order.create({
           purchase_units: [{
-            amount: {
-              value: '50.00'
-            }
+            amount: { value: '50.00' }
           }]
         });
       },
@@ -56,6 +130,35 @@
         });
       }
     }).render('#paypal-button-container');
+  </script>
+
+  <!-- Scroll Hide/Show Header Script -->
+  <script>
+    (function() {
+      let lastScrollTop = 0;
+      const header = document.getElementById('pageHeader');
+      let ticking = false;
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+              // scrolling down -> hide header by sliding up
+              header.style.transform = 'translate(-50%, -100%)';
+            } else {
+              // scrolling up -> show header
+              header.style.transform = 'translate(-50%, 0)';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
